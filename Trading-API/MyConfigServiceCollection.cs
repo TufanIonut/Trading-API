@@ -1,5 +1,6 @@
 ﻿using Trading_API.Infrastructure;
 using Trading_API.Interfaces;
+using Trading_API.Repository;
 
 namespace Trading_API
 {
@@ -10,6 +11,8 @@ namespace Trading_API
             //Database Connection
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
             //----------------------------------------------
+            //User Repository
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
     }
