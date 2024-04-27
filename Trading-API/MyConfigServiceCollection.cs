@@ -13,6 +13,15 @@ namespace Trading_API
             //----------------------------------------------
             //User Repository
             services.AddScoped<IUserRepository, UserRepository>();
+            //----------------------------------------------
+            //Currency Repository
+            services.AddScoped<ICurrencyRepository, CurrencyRepository>();
+            //----------------------------------------------
+            services.AddScoped<IIpozitRepository, IpozitRepository>();
+            //----------------------------------------------
+            services.AddScoped<ISoldRepository, SoldRepository>();
+            //----------------------------------------------
+            
             return services;
         }
     }
