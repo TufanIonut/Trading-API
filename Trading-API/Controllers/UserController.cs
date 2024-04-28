@@ -57,6 +57,17 @@ namespace Trading_API.Controllers
             }
             return Ok(result);
         }
+        [HttpGet]
+        [Route("UserDetails")]
+        public async Task<IActionResult> GetUserDetails()
+        {
+            var result = await _userRepository.GetUserDetailsAsync();
+            if(result==null)
+            {
+                return BadRequest("User does not exist");
+            }
+            return Ok(result);
+        }
         
         [HttpGet]
         [Route("userrole")]
@@ -80,6 +91,17 @@ namespace Trading_API.Controllers
                 return BadRequest("WrongSafeWord");
             }
             return Ok("Password changed");
+        }
+        [HttpGet]
+        [Route("usertransactions")]
+        public async Task<IActionResult> GetUserTransactions(int IdUser)
+        {
+            var result = await _userRepository.GetUserTransactions(IdUser);
+            if(result==null)
+            {
+                return BadRequest("User does not exist");
+            }
+            return Ok(result);
         }
     }
 }
